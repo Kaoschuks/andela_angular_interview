@@ -3,11 +3,20 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
 
-export const component: Array<any> = [
+import { BaseLayoutComponent } from './base-layout/base-layout.component';
+import { HeaderBarComponent } from './header-bar/header-bar.component';
+
+import { CurrencyTableComponent } from './currency/currency-table/currency-table.component';
+import { CurrencyConverterInputComponent } from './currency/currency-converter-input/currency-converter-input.component';
+import { CurrenccyConverterDetailsComponent } from './currency/currenccy-converter-details/currenccy-converter-details.component';
+
+export const components: Array<any> = [
+  BaseLayoutComponent, HeaderBarComponent,
+  CurrencyTableComponent, CurrencyConverterInputComponent, CurrenccyConverterDetailsComponent,
 ];
 
 @NgModule({
-  declarations: component,
+  declarations: components,
   imports: [
     CommonModule,
     FormsModule,
@@ -15,6 +24,6 @@ export const component: Array<any> = [
     ReactiveFormsModule,
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
-  exports: component,
+  exports: components,
 })
 export class ComponentsModule {}

@@ -1,0 +1,10 @@
+
+<div class="container-fluid">
+    <h3 class="mb-5 mt-3">Currency Exchange</h3>
+    <div class="card">
+        <div class="card-body">
+            <currency-converter-input [currencies]="convertprovider.currencies" [coverttedValue]="amount" [from]="convertprovider.from_currency" [to]="convertprovider.to_currency" (convertEvent)="processInfo($event)"></currency-converter-input>
+            <currenccy-converter-details [from_value]="from_amount" [to_value]="amount" [from]="convertprovider.from_currency" [to]="convertprovider.to_currency"></currenccy-converter-details>
+        </div>
+      </div>
+</div>

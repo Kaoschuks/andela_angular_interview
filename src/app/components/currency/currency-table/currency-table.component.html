@@ -1,0 +1,22 @@
+<div class="card">
+  <div class="card-body">
+    <table class="table">
+      <thead>
+        <tr>
+          <th scope="col">#</th>
+          <th scope="col">Amount</th>
+          <th scope="col">From</th>
+          <th scope="col">To</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let history of histories;let i = index">
+          <th scope="row">{{ i }}</th>
+          <td>{{ history?.amount }}</td>
+          <td>{{ history?.from }}</td>
+          <td>{{ history?.to }}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

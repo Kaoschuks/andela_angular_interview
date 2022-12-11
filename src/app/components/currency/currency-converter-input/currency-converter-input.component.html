@@ -1,0 +1,52 @@
+<form class="row" [formGroup]="currencyForm" (ngSubmit)="convertCurrency()" >
+    <div class="col-sm-4">
+        <label>Amount</label>
+        <input type="number" class="form-control" formControlName="amount" placeholder="0.00">
+        <!-- <div
+            *ngIf="amount?.invalid && amount?.touched"
+            class="alert alert-danger"
+        >
+            <div *ngIf="amount?.errors?.required">Question is required</div>
+        </div> -->
+    </div>
+    <div class="col-sm-7 offset-sm-1">
+        <label>From</label>
+        <div class="row">
+            <div class="col-sm-5">
+                <div class="input-group form-group">
+                    <input value="{{currencyForm.value.amount}}" type="number" class="form-control bg-secondary" placeholder="0.00">
+                    <div class="input-group-append">
+                        <button class="btn btn-secondary dropdown-toggle" type="button" data-toggle="dropdown"
+                            aria-expanded="false">{{ from | uppercase }}</button>
+                        <div class="dropdown-menu">
+                            <a class="dropdown-item text-dark" (click)="changeCurrency('EUR', 'from')">EUR</a>
+                            <a class="dropdown-item text-dark" (click)="changeCurrency('USD', 'from')">USD</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-1">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                    class="bi bi-arrow-left-right" viewBox="0 0 16 16">
+                    <path fill-rule="evenodd"
+                        d="M1 11.5a.5.5 0 0 0 .5.5h11.793l-3.147 3.146a.5.5 0 0 0 .708.708l4-4a.5.5 0 0 0 0-.708l-4-4a.5.5 0 0 0-.708.708L13.293 11H1.5a.5.5 0 0 0-.5.5zm14-7a.5.5 0 0 1-.5.5H2.707l3.147 3.146a.5.5 0 1 1-.708.708l-4-4a.5.5 0 0 1 0-.708l4-4a.5.5 0 1 1 .708.708L2.707 4H14.5a.5.5 0 0 1 .5.5z" />
+                </svg>
+            </div>
+            <div class="col-sm-6">
+                <div class="input-group bg-secondary form-group">
+                    <input formControlName="to" type="number" class="form-control  bg-secondary" placeholder="0.00">
+                    <div class="input-group-append">
+                        <button class="btn btn-secondary dropdown-toggle" type="button" data-toggle="dropdown"
+                            aria-expanded="false">{{ to | uppercase }} </button>
+                        <div class="dropdown-menu">
+                            <a class="dropdown-item text-dark" *ngFor="let cur of currencies" (click)="changeCurrency(cur, 'to')">{{cur | uppercase}}</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-12">
+                <button [disabled]="currencyForm.invalid && currencyForm.value.amount >= 0.0" type="submit" class="btn btn-primary btn-block mt-1">Convert</button>
+            </div>
+        </div>
+    </div>
+</form>
