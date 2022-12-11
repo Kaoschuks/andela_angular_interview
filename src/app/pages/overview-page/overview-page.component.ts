@@ -21,7 +21,8 @@ export class OverviewPageComponent implements OnInit {
 
   processInfo(info: ICurrencyModel) {
     this.from_amount = info.amount
-    this.amount = this.convertprovider.convertCurrency(info.amount, info.from, info.to)
+    this.amount = this.convertprovider.convertCurrency(info.amount, info.from, info.to);
+    this.convertprovider.saveHistory(info);
   }
 
 }

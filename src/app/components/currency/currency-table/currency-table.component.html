@@ -10,9 +10,9 @@
         </tr>
       </thead>
       <tbody>
-        <tr *ngFor="let history of histories;let i = index">
-          <th scope="row">{{ i }}</th>
-          <td>{{ history?.amount }}</td>
+        <tr *ngFor="let history of histories.reverse();let i = index">
+          <th scope="row">{{ i + 1 }}</th>
+          <td>{{ history?.amount | currency: history?.from }}</td>
           <td>{{ history?.from }}</td>
           <td>{{ history?.to }}</td>
         </tr>

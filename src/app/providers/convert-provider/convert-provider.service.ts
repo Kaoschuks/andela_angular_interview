@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import { ICurrencyModel } from 'src/app/interfaces/ICurrency';
 import { environment } from 'src/environments/environment';
 declare var $ :any;
 
@@ -10,7 +11,8 @@ export class ConvertProvider{
   rates: object | any = {}
   currencies: Array<string> = []
   from_currency: string | undefined
-  to_currency: string | undefined = 'EUR'
+  to_currency: string | undefined = 'AED'
+  histories: Array<ICurrencyModel> = []
   constructor() { }
 
   convertCurrency(amount: number, from_currency: string, to_currency: string) {
@@ -25,5 +27,15 @@ export class ConvertProvider{
       this.from_currency = data.base
       this.currencies = Object.keys(this.rates)
     })
+  }
+
+  saveHistory(history: ICurrencyModel) {
+    this.histories.push(history)
+    localStorage.setItem('history', JSON.stringify(this.histories));
+  }
+
+  getHistory() {
+    this.histories = JSON.parse(localStorage.getItem('history') || '');
+    return this.histories
   }
 }
