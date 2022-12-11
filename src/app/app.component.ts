@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { ConvertProvider } from './providers/convert-provider/convert-provider.service';
 
 @Component({
   selector: 'app-root',
@@ -7,4 +8,10 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'interview_test';
+
+  constructor(
+    private convert: ConvertProvider
+  ) {
+    this.convert.getCurrency()
+  }
 }
