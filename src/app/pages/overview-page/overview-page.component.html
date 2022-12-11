@@ -7,4 +7,9 @@
             <currenccy-converter-details [from_value]="from_amount" [to_value]="amount" [from]="convertprovider.from_currency" [to]="convertprovider.to_currency"></currenccy-converter-details>
         </div>
       </div>
+    <div class="row">
+        <div class="col-sm-3" *ngFor="let rate of convertprovider.currencies">
+            <currency-rates [key]="rate" [rateInfo]="convertprovider.rates"></currency-rates>
+        </div>
+    </div>
 </div>

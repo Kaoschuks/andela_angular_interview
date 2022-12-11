@@ -9,10 +9,11 @@ import { HeaderBarComponent } from './header-bar/header-bar.component';
 import { CurrencyTableComponent } from './currency/currency-table/currency-table.component';
 import { CurrencyConverterInputComponent } from './currency/currency-converter-input/currency-converter-input.component';
 import { CurrenccyConverterDetailsComponent } from './currency/currenccy-converter-details/currenccy-converter-details.component';
+import { CurrencyRatesComponent } from './currency/currency-rates/currency-rates.component';
 
 export const components: Array<any> = [
   BaseLayoutComponent, HeaderBarComponent,
-  CurrencyTableComponent, CurrencyConverterInputComponent, CurrenccyConverterDetailsComponent,
+  CurrencyTableComponent, CurrencyConverterInputComponent, CurrenccyConverterDetailsComponent, CurrencyRatesComponent
 ];
 
 @NgModule({
